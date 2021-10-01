@@ -1,2 +1,5 @@
 #pragma once
-int handleListADT();
+int showListADTOptions();
+int handleListADTOptions();
+int handleListADTWithVector();
+int fillPatientContainer();

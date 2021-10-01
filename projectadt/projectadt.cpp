@@ -33,7 +33,7 @@ int handleUserOptions() {
 		appAction = TextUserInterface::writeActionSeperator();
 		switch (choise) {
 		case 1:
-			appAction = handleListADT();
+			appAction = handleListADTOptions();
 			break;
 		case 2:
 			appAction = TextUserInterface::writeSelectionHighlighter();

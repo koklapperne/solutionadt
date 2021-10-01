@@ -24,12 +24,18 @@
     <ClCompile Include="handling.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="patient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="textuserinterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="handling.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
