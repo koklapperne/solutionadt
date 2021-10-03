@@ -1,4 +1,6 @@
 ﻿  handling.cpp
   patient.cpp
+  projectadt.cpp
+  textuserinterface.cpp
   Generating Code...
   projectadt.vcxproj -> D:\Programmering\C++\solutionadt\Debug\projectadt.exe

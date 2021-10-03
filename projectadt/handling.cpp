@@ -4,11 +4,14 @@
 // Standard library headers
 #include <iostream>
 #include <vector>
-// Declare and initialize a vector of patient objects. 
-// Vector becomes the List ADT set of elements, or the list ADT container
-std::vector<patientAdministration::patient> patientContainer{};
-// IMPORTANT! patientContainer becomes global for this cpp file!
+#include <list>
 // IMPORTANT! Global variables are bad practice, but in this case it serves a purpose!
+// Declare and initialize a vector of patient objects. 
+// patientVectorContainer becomes the List ADT set of elements, or the list ADT container
+std::vector<patientAdministration::patient> patientVectorContainer{};
+// Declare and initialize a list of patient objects. 
+// patientListContainer becomes the List ADT set of elements, or the list ADT container
+std::list<patientAdministration::patient> patientListContainer{};
 int showListADTOptions() {
     // 01-10-2021 11.38
     std::cout << "1. LIST ADT with vector" << std::endl;
@@ -108,38 +111,63 @@ int handleListADTWithVector() {
 	// 01-10-2021 10.58
 	int appAction = 0;
 	// Fill patientContainer vector witht patient elements
-	appAction = fillPatientContainer();
+	appAction = fillPatientVectorContainer();
 	// Travers patientContainer vector without an iterator
 	std::cout << "Print without an iterator:" << std::endl;
-	for (unsigned int i = 0; i < patientContainer.size(); i++) {
-		std::cout << patientContainer[i].returnPatientId()<< std::endl;
+	for (unsigned int i = 0; i < patientVectorContainer.size(); i++) {
+		std::cout << patientVectorContainer[i].returnPatientId()<< std::endl;
 	}
 	// Declaring an iterator
 	std::vector<patientAdministration::patient>::iterator i;
+	
+	std::cout << "Print with an iterator:" << std::endl;
 	// Travers patientContainer using iterator
 	// i is used as an input iterator to read each element in patientContainer and 
 	// call one of its public data member functions: returnPatientId()
-	std::cout << "Print with an iterator:" << std::endl;
-	for (i = patientContainer.begin(); i != patientContainer.end(); i++) {
+	for (i = patientVectorContainer.begin(); i != patientVectorContainer.end(); i++) {
 		std::cout << (*i).returnPatientId() << std::endl;
 	}
-	// Travers patientContainer using iterator
-	// i is used as an input iterator to read each element in patientContainer and 
-	// call one of its public data member functions: updateDateDischarge
-	// IMPORTANT! Though this is an update, i is still used as an input operator!
-	// This is because the patient element is NOT changed. In this case a change will be adding new
-	// private data memebers, not updating the content of an excisting private data memeber!
 	std::cout << "Update with an iterator:" << std::endl;
-	for (i = patientContainer.begin(); i != patientContainer.end(); i++) {
+	// Travers patientContainer using iterator
+	// i is used as an output iterator to inspect each element in patientContainer 
+	// and update it
+	for (i = patientVectorContainer.begin(); i != patientVectorContainer.end(); i++) {
 		(*i).updateDateDischarge("03-10-2021");
 	}
 	std::cout << "Print with an iterator:" << std::endl;
-	for (i = patientContainer.begin(); i != patientContainer.end(); i++) {
+	// Travers patientContainer using iterator
+	for (i = patientVectorContainer.begin(); i != patientVectorContainer.end(); i++) {
 		std::cout << (*i).returnDateDischarge() << std::endl;
+	}
+	// Declaring and initializing a vector
+	std::vector<std::string> flowerNames = { "Anemone","Bougainvillea","Broom", "Clematis","Dahlia","Hyacinth","Lavender","Lilac","Lupine","Narcissus" };
+	// Declaring an iterator
+	std::vector<std::string>::iterator j;
+	std::cout << "Print with an iterator:" << std::endl;
+	// Travers flowerNames using iterator
+	// j is used as an input iterator to inspect each element in flowerNames 
+	for (j = flowerNames.begin(); j != flowerNames.end(); j++) {
+		std::cout << (*j) << std::endl;
+	}
+	std::cout << "Updating with an iterator:" << std::endl;
+	// Travers flowerNames using iterator
+	// j is used as an output iterator to inspect each element in flowerNames and update them
+	for (j = flowerNames.begin(); j != flowerNames.end(); j++) {
+		(*j)="Tulip";
+	}
+	std::cout << "Print with an iterator:" << std::endl;
+	// Travers flowerNames using iterator
+	for (j = flowerNames.begin(); j != flowerNames.end(); j++) {
+		std::cout << (*j) << std::endl;
 	}
 	return 0;
 }
-int fillPatientContainer() {
+int handleListADTWithList() {
+	// 03-10-2021 19.00
+	//
+	return 0;
+}
+int fillPatientVectorContainer() {
 	// 01-10-2021 13.07
 	// Declare and initialize a vector of strings to hold patient information
 	// IMPORTANT! push_back serves as an ADT function to add an element to the container
@@ -155,7 +183,7 @@ int fillPatientContainer() {
 	patientInformation.push_back("N/A");
 	patientInformation.push_back("Emergency Department");
 	patientAdministration::patient patAAA(patientInformation);
-	patientContainer.push_back(patAAA);
+	patientVectorContainer.push_back(patAAA);
 	patientInformation.clear();
 	// Create a patient object
 	patientInformation.push_back("011200-RRRR");
@@ -165,7 +193,7 @@ int fillPatientContainer() {
 	patientInformation.push_back("N/A");
 	patientInformation.push_back("Emergency Department");
 	patientAdministration::patient patAAB(patientInformation);
-	patientContainer.push_back(patAAB);
+	patientVectorContainer.push_back(patAAB);
 	// Clean up
 	patientInformation.clear();
 	// Create a patient object
@@ -176,7 +204,7 @@ int fillPatientContainer() {
 	patientInformation.push_back("N/A");
 	patientInformation.push_back("Emergency Department");
 	patientAdministration::patient patAAC(patientInformation);
-	patientContainer.push_back(patAAC);
+	patientVectorContainer.push_back(patAAC);
 	// Clean up
 	patientInformation.clear();
 	// Create a patient object
@@ -187,7 +215,7 @@ int fillPatientContainer() {
 	patientInformation.push_back("N/A");
 	patientInformation.push_back("Emergency Department");
 	patientAdministration::patient patAAD(patientInformation);
-	patientContainer.push_back(patAAD);
+	patientVectorContainer.push_back(patAAD);
 	// Clean up
 	patientInformation.clear();
 	// Create a patient object
@@ -198,7 +226,72 @@ int fillPatientContainer() {
 	patientInformation.push_back("N/A");
 	patientInformation.push_back("Emergency Department");
 	patientAdministration::patient patAAE(patientInformation);
-	patientContainer.push_back(patAAE);
+	patientVectorContainer.push_back(patAAE);
+	// Clean up
+	patientInformation.clear();
+	//
+	return 0;
+}
+int fillPatientListContainer() {
+	// 03-10-2021 13.07
+	// Declare and initialize a vector of strings to hold patient information
+	// IMPORTANT! push_back serves as an ADT function to add an element to the container
+	// IMPORTANT! patientInformation and all pat... objects are destroyed when this function
+	// goes out of scope, but patientContainer holds all objects untill handling.cpp goes out of 
+	// scope!
+	std::vector<std::string> patientInformation{};
+	// Create a patient object
+	patientInformation.push_back("011299-QQQQ");
+	patientInformation.push_back("Red Tulip");
+	patientInformation.push_back("Cabbage Road 45");
+	patientInformation.push_back("01-10-2021 12.25");
+	patientInformation.push_back("N/A");
+	patientInformation.push_back("Emergency Department");
+	patientAdministration::patient patAAA(patientInformation);
+	patientListContainer.push_back(patAAA);
+	patientInformation.clear();
+	// Create a patient object
+	patientInformation.push_back("011200-RRRR");
+	patientInformation.push_back("Blue Rose");
+	patientInformation.push_back("Carrot Street 6");
+	patientInformation.push_back("01-10-2021 06.25");
+	patientInformation.push_back("N/A");
+	patientInformation.push_back("Emergency Department");
+	patientAdministration::patient patAAB(patientInformation);
+	patientListContainer.push_back(patAAB);
+	// Clean up
+	patientInformation.clear();
+	// Create a patient object
+	patientInformation.push_back("310190-NNNN");
+	patientInformation.push_back("Black Orchid");
+	patientInformation.push_back("Onion Street 600");
+	patientInformation.push_back("01-01-2021 13.00");
+	patientInformation.push_back("N/A");
+	patientInformation.push_back("Emergency Department");
+	patientAdministration::patient patAAC(patientInformation);
+	patientListContainer.push_back(patAAC);
+	// Clean up
+	patientInformation.clear();
+	// Create a patient object
+	patientInformation.push_back("220620-PPPP");
+	patientInformation.push_back("Yellow Hyacinth");
+	patientInformation.push_back("Carrot Street 232");
+	patientInformation.push_back("03-08-2021 11.00");
+	patientInformation.push_back("N/A");
+	patientInformation.push_back("Emergency Department");
+	patientAdministration::patient patAAD(patientInformation);
+	patientListContainer.push_back(patAAD);
+	// Clean up
+	patientInformation.clear();
+	// Create a patient object
+	patientInformation.push_back("101245-AAAA");
+	patientInformation.push_back("Yellow Orchid");
+	patientInformation.push_back("Potatoe Street 2");
+	patientInformation.push_back("03-10-2021 06.45");
+	patientInformation.push_back("N/A");
+	patientInformation.push_back("Emergency Department");
+	patientAdministration::patient patAAE(patientInformation);
+	patientListContainer.push_back(patAAE);
 	// Clean up
 	patientInformation.clear();
 	//
