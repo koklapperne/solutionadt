@@ -109,9 +109,33 @@ int handleListADTWithVector() {
 	int appAction = 0;
 	// Fill patientContainer vector witht patient elements
 	appAction = fillPatientContainer();
-	// Travers patientContainer vector without an iterator and print patientId
+	// Travers patientContainer vector without an iterator
+	std::cout << "Print without an iterator:" << std::endl;
 	for (unsigned int i = 0; i < patientContainer.size(); i++) {
 		std::cout << patientContainer[i].returnPatientId()<< std::endl;
+	}
+	// Declaring an iterator
+	std::vector<patientAdministration::patient>::iterator i;
+	// Travers patientContainer using iterator
+	// i is used as an input iterator to read each element in patientContainer and 
+	// call one of its public data member functions: returnPatientId()
+	std::cout << "Print with an iterator:" << std::endl;
+	for (i = patientContainer.begin(); i != patientContainer.end(); i++) {
+		std::cout << (*i).returnPatientId() << std::endl;
+	}
+	// Travers patientContainer using iterator
+	// i is used as an input iterator to read each element in patientContainer and 
+	// call one of its public data member functions: updateDateDischarge
+	// IMPORTANT! Though this is an update, i is still used as an input operator!
+	// This is because the patient element is NOT changed. In this case a change will be adding new
+	// private data memebers, not updating the content of an excisting private data memeber!
+	std::cout << "Update with an iterator:" << std::endl;
+	for (i = patientContainer.begin(); i != patientContainer.end(); i++) {
+		(*i).updateDateDischarge("03-10-2021");
+	}
+	std::cout << "Print with an iterator:" << std::endl;
+	for (i = patientContainer.begin(); i != patientContainer.end(); i++) {
+		std::cout << (*i).returnDateDischarge() << std::endl;
 	}
 	return 0;
 }
@@ -164,6 +188,17 @@ int fillPatientContainer() {
 	patientInformation.push_back("Emergency Department");
 	patientAdministration::patient patAAD(patientInformation);
 	patientContainer.push_back(patAAD);
+	// Clean up
+	patientInformation.clear();
+	// Create a patient object
+	patientInformation.push_back("101245-AAAA");
+	patientInformation.push_back("Yellow Orchid");
+	patientInformation.push_back("Potatoe Street 2");
+	patientInformation.push_back("03-10-2021 06.45");
+	patientInformation.push_back("N/A");
+	patientInformation.push_back("Emergency Department");
+	patientAdministration::patient patAAE(patientInformation);
+	patientContainer.push_back(patAAE);
 	// Clean up
 	patientInformation.clear();
 	//

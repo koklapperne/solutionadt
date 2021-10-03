@@ -4,14 +4,17 @@
 #include <vector>
 namespace patientAdministration{
 	class patient{
-		// 01-10-2021 08.35
+		// 03-10-2021 09.56
 	public:
 		// Constructors
 		// Default constructor
 		patient();
+		// Standard constructor
 		patient(std::vector<std::string> newPatientInformation);
 		// Other data member functions
 		std::string returnPatientId();
+		int updateDateDischarge(std::string newDischargeDate);
+		std::string returnDateDischarge();
 	private:
 	// Private data members
 	//
