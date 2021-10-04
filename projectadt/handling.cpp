@@ -233,13 +233,16 @@ int fillPatientVectorContainer() {
 	return 0;
 }
 int fillPatientListContainer() {
-	// 03-10-2021 13.07
-	// Declare and initialize a vector of strings to hold patient information
-	// IMPORTANT! push_back serves as an ADT function to add an element to the container
+	// 04-10-2021 14.13
 	// IMPORTANT! patientInformation and all pat... objects are destroyed when this function
-	// goes out of scope, but patientContainer holds all objects untill handling.cpp goes out of 
-	// scope!
+	// goes out of scope, but patientContainer holds all objects until handling.cpp goes out of scope!
 	std::vector<std::string> patientInformation{};
+	// Declaring and initializing a vector With flower names
+	std::vector<std::string> flowerNames = { "Anemone","Bougainvillea","Broom", "Clematis","Dahlia","Hyacinth","Lavender","Lilac","Lupine","Narcissus" };
+	// Declaring and initializing a vector With vegetable names
+	std::vector<std::string> vegetableNames = { "Artichokes","Asparagus","Bean","Broccoli","Cabbage","Carrot","Cucumber","Kale","Kohlrabi","Pumpkin" };
+	// Declaring and initializing a vector With color names
+	std::vector<std::string> colorNames = { "Red","Pink","Orange","Yellow","Purple","Green","Blue","Brown","Cyan","Lime"};
 	// Create a patient object
 	patientInformation.push_back("011299-QQQQ");
 	patientInformation.push_back("Red Tulip");
