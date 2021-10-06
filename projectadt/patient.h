@@ -12,6 +12,7 @@ namespace patientAdministration{
 		// Standard constructor
 		patient(std::vector<std::string> newPatientInformation);
 		// Other data member functions
+		int updatePatient(std::vector<std::string> newPatientInformation);
 		std::string returnPatientId();
 		int updateDateDischarge(std::string newDischargeDate);
 		std::string returnDateDischarge();

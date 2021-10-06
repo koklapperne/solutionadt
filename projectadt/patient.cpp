@@ -25,6 +25,19 @@ patientAdministration::patient::patient(std::vector<std::string> newPatientInfor
 	m_department = newPatientInformation[5];
 }
 // Others
+// Updating all datamembers
+int patientAdministration::patient::updatePatient(std::vector<std::string> newPatientInformation) {
+	// 06-10-2021 14.30
+	m_patientId = newPatientInformation[0];
+	m_patientName = newPatientInformation[1];
+	m_patientAddress = newPatientInformation[2];
+	// 
+	m_dateAdmission = newPatientInformation[3];
+	m_dateDischarge = newPatientInformation[4];
+	m_department = newPatientInformation[5];
+	// 
+	return 0;
+}
 // Handling PatientId
 std::string patientAdministration::patient::returnPatientId() {
 	// 01-10-2021 10.54

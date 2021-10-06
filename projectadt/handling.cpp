@@ -237,14 +237,38 @@ int fillPatientListContainer() {
 	// IMPORTANT! patientInformation and all pat... objects are destroyed when this function
 	// goes out of scope, but patientContainer holds all objects until handling.cpp goes out of scope!
 	std::vector<std::string> patientInformation{};
+	// Declaring and initializing a vector with patient identifiers
+	std::vector<std::string> patientIdentifiers = { "011129-QQQQ","030566-WWWW","040622-EEEE","070655-FFFF","060133-TTTT","010499-YYYY","080922-UUUU","070499-IIII","010233-OOOO","060411-PPPP" };
 	// Declaring and initializing a vector With flower names
 	std::vector<std::string> flowerNames = { "Anemone","Bougainvillea","Broom", "Clematis","Dahlia","Hyacinth","Lavender","Lilac","Lupine","Narcissus" };
 	// Declaring and initializing a vector With vegetable names
 	std::vector<std::string> vegetableNames = { "Artichokes","Asparagus","Bean","Broccoli","Cabbage","Carrot","Cucumber","Kale","Kohlrabi","Pumpkin" };
 	// Declaring and initializing a vector With color names
 	std::vector<std::string> colorNames = { "Red","Pink","Orange","Yellow","Purple","Green","Blue","Brown","Cyan","Lime"};
+	//
+	std::string patientName = "*";
+	std::string patientAddress = "*";
+	// Declare and initialize aPatient object by calling the default constructor, no parameters
+	patientAdministration::patient aPatient;
+	// Create 10 patient objects and add them to patientListContainer
+	for (unsigned int i = 0; i < 10; i++) {
+		patientInformation.push_back(patientIdentifiers[i]);
+		patientName = flowerNames[i] + vegetableNames[i];
+		patientInformation.push_back(patientName);
+		patientAddress = colorNames[i] + " " + "Road" + "456";
+		patientInformation.push_back(patientAddress);
+		patientInformation.push_back("01-10-2021 12.25");
+		patientInformation.push_back("N/A");
+		patientInformation.push_back("Emergency Department");
+		// Add aPatient to patientListContainer and clear patientInformation 
+		aPatient.updatePatient(patientInformation);
+		patientListContainer.push_back(aPatient);
+		patientInformation.clear();
+	}
+
+	// Declaring and initializing a vector vith patient identifiers
 	// Create a patient object
-	patientInformation.push_back("011299-QQQQ");
+	/*patientInformation.push_back("011299-QQQQ");
 	patientInformation.push_back("Red Tulip");
 	patientInformation.push_back("Cabbage Road 45");
 	patientInformation.push_back("01-10-2021 12.25");
@@ -298,5 +322,6 @@ int fillPatientListContainer() {
 	// Clean up
 	patientInformation.clear();
 	//
+	*/
 	return 0;
 }
