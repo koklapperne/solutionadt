@@ -15,7 +15,7 @@ std::list<patientAdministration::patient> patientListContainer{};
 int showListADTOptions() {
     // 01-10-2021 11.38
     std::cout << "1. LIST ADT with vector" << std::endl;
-    std::cout << "2. #" << std::endl;
+    std::cout << "2. LIST ADT with list" << std::endl;
     std::cout << "3. #" << std::endl;
     std::cout << "4. #" << std::endl;
     std::cout << "5. #" << std::endl;
@@ -48,7 +48,7 @@ int handleListADTOptions() {
 			break;
 		case 2:
 			appAction = TextUserInterface::writeSelectionHighlighter();
-			std::cout << "Not done yet" << std::endl;
+			appAction = handleListADTWithList();
 			appAction = TextUserInterface::writeSelectionHighlighter();
 			appAction = TextUserInterface::writeActionSeperator();
 			break;
@@ -108,37 +108,45 @@ int handleListADTOptions() {
 	return 0;
 }
 int handleListADTWithVector() {
-	// 01-10-2021 10.58
+	// 07-10-2021 10.58
 	int appAction = 0;
-	// Fill patientContainer vector witht patient elements
+	// Fill patientVectorContainer witht patient elements
+	std::cout << "Vector of objects:" << std::endl;
 	appAction = fillPatientVectorContainer();
-	// Travers patientContainer vector without an iterator
+	// Travers patientVectorContainer without an iterator
 	std::cout << "Print without an iterator:" << std::endl;
 	for (unsigned int i = 0; i < patientVectorContainer.size(); i++) {
 		std::cout << patientVectorContainer[i].returnPatientId()<< std::endl;
 	}
 	// Declaring an iterator
 	std::vector<patientAdministration::patient>::iterator i;
-	
+	//
 	std::cout << "Print with an iterator:" << std::endl;
-	// Travers patientContainer using iterator
+	// Travers patientVectorContainer using iterator
 	// i is used as an input iterator to read each element in patientContainer and 
 	// call one of its public data member functions: returnPatientId()
 	for (i = patientVectorContainer.begin(); i != patientVectorContainer.end(); i++) {
 		std::cout << (*i).returnPatientId() << std::endl;
 	}
 	std::cout << "Update with an iterator:" << std::endl;
-	// Travers patientContainer using iterator
-	// i is used as an output iterator to inspect each element in patientContainer 
+	// Travers patientVectorContainer using iterator
+	// i is used as an output iterator to inspect each element in patientVectorContainer 
 	// and update it
 	for (i = patientVectorContainer.begin(); i != patientVectorContainer.end(); i++) {
 		(*i).updateDateDischarge("03-10-2021");
 	}
 	std::cout << "Print with an iterator:" << std::endl;
-	// Travers patientContainer using iterator
+	// Travers patientVectorContainer using iterator
 	for (i = patientVectorContainer.begin(); i != patientVectorContainer.end(); i++) {
 		std::cout << (*i).returnDateDischarge() << std::endl;
 	}
+	//
+	return 0;
+}
+int handleListADTWithVectorString() {
+	// 07-10-2021 10.35
+	// Deprecated, do not delete!
+	std::cout << "Vector of strings:" << std::endl;
 	// Declaring and initializing a vector
 	std::vector<std::string> flowerNames = { "Anemone","Bougainvillea","Broom", "Clematis","Dahlia","Hyacinth","Lavender","Lilac","Lupine","Narcissus" };
 	// Declaring an iterator
@@ -153,7 +161,7 @@ int handleListADTWithVector() {
 	// Travers flowerNames using iterator
 	// j is used as an output iterator to inspect each element in flowerNames and update them
 	for (j = flowerNames.begin(); j != flowerNames.end(); j++) {
-		(*j)="Tulip";
+		(*j) = "Tulip";
 	}
 	std::cout << "Print with an iterator:" << std::endl;
 	// Travers flowerNames using iterator
@@ -163,7 +171,45 @@ int handleListADTWithVector() {
 	return 0;
 }
 int handleListADTWithList() {
-	// 03-10-2021 19.00
+	// 07-10-2021 08.07
+	int appAction = 0;
+	// Fill patientListContainer witht patient elements
+	appAction = fillPatientListContainer();
+	// Travers patientVectorContainer without an iterator
+	std::cout << "Print without an iterator:" << std::endl;
+	std::cout << "Not supported" << std::endl;
+	// Declaring an iterator
+	std::list<patientAdministration::patient>::iterator i;
+	std::cout << "Print with an iterator, forward:" << std::endl;
+	// Forward travers patientListContainer using iterator, forward iterator
+	// i is used as an input iterator to read each element in patientListContainer and 
+	// call one of its public data member functions: returnPatientId()
+	for (i = patientListContainer.begin(); i != patientListContainer.end(); i++) {
+		std::cout << (*i).returnPatientId() << std::endl;
+	}
+	std::cout << "Print with an iterator, backward:" << std::endl;
+	// Backward travers patientListContainer using iterator, forward + backward = bidirectional iterator
+	// i is used as an input iterator to read each element in patientListContainer and 
+	// call one of its public data member functions: returnPatientId(). 
+	for (i = patientListContainer.end(); i != patientListContainer.begin(); i--) {
+		if (i != patientListContainer.end()) {
+			std::cout << (*i).returnPatientId() << std::endl;
+		}
+	}
+	std::cout << "Update with an iterator:" << std::endl;
+	// Travers patientListContainer using iterator
+	// i is used as an output iterator to inspect each element in patientListContainer 
+	// and update it
+	for (i = patientListContainer.begin(); i != patientListContainer.end(); i++) {
+		(*i).updateDateDischarge("03-10-2021");
+	}
+	std::cout << "Print with an iterator:" << std::endl;
+	// Travers patientListContainer using iterator
+	// i is used as an input iterator to read each element in patientListContainer and 
+	// call one of its public data member functions: returnPatientId()
+	for (i = patientListContainer.begin(); i != patientListContainer.end(); i++) {
+		std::cout << (*i).returnDateDischarge() << std::endl;
+	}
 	//
 	return 0;
 }
