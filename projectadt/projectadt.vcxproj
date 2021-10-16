@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="handling.cpp" />
+    <ClCompile Include="organization.cpp" />
     <ClCompile Include="patient.cpp" />
     <ClCompile Include="projectadt.cpp" />
     <ClCompile Include="textuserinterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="handling.h" />
+    <ClInclude Include="organization.h" />
     <ClInclude Include="patient.h" />
     <ClInclude Include="textuserinterface.h" />
   </ItemGroup>

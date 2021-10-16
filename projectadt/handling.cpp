@@ -12,6 +12,9 @@ std::vector<patientAdministration::patient> patientVectorContainer{};
 // Declare and initialize a list of patient objects. 
 // patientListContainer becomes the List ADT set of elements, or the list ADT container
 std::list<patientAdministration::patient> patientListContainer{};
+// Declare and initialize a list of hospital objects. 
+// patientListContainer becomes the tree ADT elements, or the tree ADT container
+// std::list<organizationAdministration::patient> organizationTreeContainer{};
 int showListADTOptions() {
     // 01-10-2021 11.38
     std::cout << "1. LIST ADT with vector" << std::endl;
