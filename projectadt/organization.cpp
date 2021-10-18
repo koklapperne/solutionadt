@@ -2,7 +2,9 @@
 #include <string>
 // Local headers
 #include "organization.h"
+// *
 // Department
+// *
 // Public data member functions
 // Constructors
 organizationAdministration::department::department() {
@@ -28,6 +30,7 @@ int organizationAdministration::department::updateDepartment(std::vector<std::st
 }
 // *
 // Hospital
+// *
 // Public data member functions
 // Constructors
 organizationAdministration::hospital::hospital() {
@@ -67,6 +70,14 @@ int organizationAdministration::hospital::updateHospital(std::vector<std::string
 	return 0;
 }
 // Handle departments
+int organizationAdministration::hospital::addHospitalDepartment(std::vector<std::string> newHospitalDepartmentInformation) {
+	// 18-10-2021 13.11
+	// Declare and initialize a department object and add it to m_departments!
+	organizationAdministration::department newDepartment(newHospitalDepartmentInformation);
+	m_departments.push_back(newDepartment);
+	//
+	return 0;
+}
 int organizationAdministration::hospital::updateHospitalDepartment(int departmentIndex, std::vector<std::string> newDepartmentInformation) {
 	// 16-10-2021 11.38
 	int appAction = 0;

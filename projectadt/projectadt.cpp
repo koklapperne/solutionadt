@@ -7,7 +7,7 @@
 int showUserOptions() {
     // 24-09-2021 15.30
     std::cout << "1. LIST ADT" << std::endl;
-    std::cout << "2. #" << std::endl;
+    std::cout << "2. Tree ADT" << std::endl;
     std::cout << "3. #" << std::endl;
     std::cout << "4. #" << std::endl;
     std::cout << "5. #" << std::endl;
@@ -21,7 +21,7 @@ int showUserOptions() {
     return 0;
 }
 int handleUserOptions() {
-	// 10-08-2021 13.26
+	// 18-10-2021 14.05
 	int appAction = 0;
 	int choise = 99;
 	bool stop = false;
@@ -36,10 +36,7 @@ int handleUserOptions() {
 			appAction = handleListADTOptions();
 			break;
 		case 2:
-			appAction = TextUserInterface::writeSelectionHighlighter();
-			std::cout << "Not done yet" << std::endl;
-			appAction = TextUserInterface::writeSelectionHighlighter();
-			appAction = TextUserInterface::writeActionSeperator();
+			appAction = handleTreeADTOptions();
 			break;
 		case 3:
 			appAction = TextUserInterface::writeSelectionHighlighter();

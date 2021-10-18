@@ -1,20 +1,24 @@
 #include "textuserinterface.h"
 #include "handling.h"
 #include "patient.h"
+#include "organization.h"
 // Standard library headers
 #include <iostream>
 #include <vector>
 #include <list>
+// *
 // IMPORTANT! Global variables are bad practice, but in this case it serves a purpose!
+// *
 // Declare and initialize a vector of patient objects. 
 // patientVectorContainer becomes the List ADT set of elements, or the list ADT container
 std::vector<patientAdministration::patient> patientVectorContainer{};
 // Declare and initialize a list of patient objects. 
 // patientListContainer becomes the List ADT set of elements, or the list ADT container
 std::list<patientAdministration::patient> patientListContainer{};
-// Declare and initialize a list of hospital objects. 
-// patientListContainer becomes the tree ADT elements, or the tree ADT container
-// std::list<organizationAdministration::patient> organizationTreeContainer{};
+// Declare and initialize a hospital objects. 
+// hospitalTreeContainer becomes the tree ADT set of department elements, or the tree ADT container
+organizationAdministration::hospital hospitalTreeContainer{};
+// List ADT
 int showListADTOptions() {
     // 01-10-2021 11.38
     std::cout << "1. LIST ADT with vector" << std::endl;
@@ -374,3 +378,155 @@ int fillPatientListContainer() {
 	*/
 	return 0;
 }
+// Tree ADT
+int showTreeADTOptions() {
+	// 01-10-2021 11.38
+	std::cout << "1. Tree ADT with vector" << std::endl;
+	std::cout << "2. #" << std::endl;
+	std::cout << "3. #" << std::endl;
+	std::cout << "4. #" << std::endl;
+	std::cout << "5. #" << std::endl;
+	std::cout << "6. #" << std::endl;
+	std::cout << "7. #" << std::endl;
+	std::cout << "8. #" << std::endl;
+	std::cout << "9. #" << std::endl;
+	std::cout << "0. Exit" << std::endl;
+	TextUserInterface::writeActionSeperator();
+	//
+	return 0;
+}
+int handleTreeADTOptions() {
+	// 18-10-2021 13.40
+	int appAction = 0;
+	int choise = 99;
+	bool stop = false;
+	// Operations on protocols
+	while (stop == false) {
+		appAction = showTreeADTOptions();
+		std::cout << "Enter choise: ";
+		std::cin >> choise;
+		appAction = TextUserInterface::writeActionSeperator();
+		switch (choise) {
+		case 1:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = handleTreeADT();
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 2:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 3:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 4:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 5:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 6:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 7:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 8:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 9:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 0:
+			stop = true;
+			break;
+		default:
+			stop = true;
+			break;
+
+		}
+
+	}
+	//
+	return 0;
+}
+int handleTreeADT() {
+	// 18-10-2021 14.20
+	int appAction = 0;
+	// Fill hospitalTreeContainer witht department elements
+	std::cout << "Tree with Vector of objects:" << std::endl;
+	appAction = fillHospitalTreeContainer();
+	//
+	return 0;
+}
+int fillHospitalTreeContainer() {
+// 18-10-2021 12.12
+	int appAction = 0;
+	// Create a hospital object with one mandatory department object
+	std::vector<std::string> hospitalInformation{};
+	std::vector<std::string> departmentInformation{};
+	// Hospital information
+	hospitalInformation.push_back("1516");
+	hospitalInformation.push_back("Herlev Gentofte Hospital");
+	hospitalInformation.push_back("Borgmester Ib Juuls Vej 1, 2730 Herlev");
+	// Department information, first department
+	departmentInformation.push_back("151601");
+	departmentInformation.push_back("Department Of Anesthesiology");
+	departmentInformation.push_back("Borgmester Ib Juuls Vej 1, 2730 Herlev");
+	// Create a hospital object with one mandatory department
+	organizationAdministration::hospital HEH(hospitalInformation, departmentInformation);
+	// Clear departmentInformation
+	departmentInformation.clear();
+	// Department information, more than one department
+	departmentInformation.push_back("151602");
+	departmentInformation.push_back("Department Of Radiology");
+	departmentInformation.push_back("Borgmester Ib Juuls Vej 1, 2730 Herlev");
+	// Add department to hospital
+	appAction = HEH.addHospitalDepartment(departmentInformation);
+	// Clear departmentInformation
+	departmentInformation.clear();
+	// Department information, more than one department
+	departmentInformation.push_back("151604");
+	departmentInformation.push_back("Department Of Gynaecology");
+	departmentInformation.push_back("Borgmester Ib Juuls Vej 1, 2730 Herlev");
+	// Add department to hospital
+	appAction = HEH.addHospitalDepartment(departmentInformation);
+	// Clear departmentInformation
+	departmentInformation.clear();
+	// Department information, more than one department
+	departmentInformation.push_back("151607");
+	departmentInformation.push_back("Department Of Nuklear Medicine");
+	departmentInformation.push_back("Borgmester Ib Juuls Vej 1, 2730 Herlev");
+	// Add department to hospital
+	appAction = HEH.addHospitalDepartment(departmentInformation);
+	// Clear departmentInformation
+	departmentInformation.clear();
+//
+	return 0;
+}
+// Binary tree ADT
+// Binary search tree ADT

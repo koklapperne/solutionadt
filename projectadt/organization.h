@@ -35,6 +35,7 @@ namespace organizationAdministration {
 		int updateHospital(std::vector<std::string> newHospitalInformation);
 		// Handle departments
 		// IMPORTANT! Composition dictates that manipulation of department must take place through hospital!
+		int addHospitalDepartment(std::vector<std::string> newHospitalDepartmentInformation);
 		int updateHospitalDepartment(int departmentIndex, std::vector<std::string> newHospitalDepartmentInformation);
 	private:
 		// Private data members
