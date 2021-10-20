@@ -21,8 +21,8 @@ organizationAdministration::hospital hospitalTreeContainer{};
 // List ADT
 int showListADTOptions() {
     // 01-10-2021 11.38
-    std::cout << "1. LIST ADT with vector" << std::endl;
-    std::cout << "2. LIST ADT with list" << std::endl;
+    std::cout << "1. List ADT with vector" << std::endl;
+    std::cout << "2. List ADT with list" << std::endl;
     std::cout << "3. #" << std::endl;
     std::cout << "4. #" << std::endl;
     std::cout << "5. #" << std::endl;
@@ -382,7 +382,7 @@ int fillPatientListContainer() {
 int showTreeADTOptions() {
 	// 01-10-2021 11.38
 	std::cout << "1. Tree ADT with vector" << std::endl;
-	std::cout << "2. #" << std::endl;
+	std::cout << "2. Binary tree ADT with struct node" << std::endl;
 	std::cout << "3. #" << std::endl;
 	std::cout << "4. #" << std::endl;
 	std::cout << "5. #" << std::endl;
@@ -415,7 +415,7 @@ int handleTreeADTOptions() {
 			break;
 		case 2:
 			appAction = TextUserInterface::writeSelectionHighlighter();
-			std::cout << "Not done yet" << std::endl;
+			appAction = handleBinaryTreeADT();
 			appAction = TextUserInterface::writeSelectionHighlighter();
 			appAction = TextUserInterface::writeActionSeperator();
 			break;
@@ -501,7 +501,7 @@ int fillHospitalTreeContainer() {
 	organizationAdministration::hospital HEH(hospitalInformation, departmentInformation);
 	// Clear departmentInformation
 	departmentInformation.clear();
-	// Department information, more than one department
+	// Department information, new department
 	departmentInformation.push_back("151602");
 	departmentInformation.push_back("Department Of Radiology");
 	departmentInformation.push_back("Borgmester Ib Juuls Vej 1, 2730 Herlev");
@@ -509,7 +509,7 @@ int fillHospitalTreeContainer() {
 	appAction = HEH.addHospitalDepartment(departmentInformation);
 	// Clear departmentInformation
 	departmentInformation.clear();
-	// Department information, more than one department
+	// Department information, new department
 	departmentInformation.push_back("151604");
 	departmentInformation.push_back("Department Of Gynaecology");
 	departmentInformation.push_back("Borgmester Ib Juuls Vej 1, 2730 Herlev");
@@ -517,7 +517,7 @@ int fillHospitalTreeContainer() {
 	appAction = HEH.addHospitalDepartment(departmentInformation);
 	// Clear departmentInformation
 	departmentInformation.clear();
-	// Department information, more than one department
+	// Department information, new department
 	departmentInformation.push_back("151607");
 	departmentInformation.push_back("Department Of Nuklear Medicine");
 	departmentInformation.push_back("Borgmester Ib Juuls Vej 1, 2730 Herlev");
@@ -525,8 +525,49 @@ int fillHospitalTreeContainer() {
 	appAction = HEH.addHospitalDepartment(departmentInformation);
 	// Clear departmentInformation
 	departmentInformation.clear();
+	// Print all departments
+	appAction = HEH.printHospitalDepartments();
 //
 	return 0;
 }
-// Binary tree ADT
 // Binary search tree ADT
+int handleBinaryTreeADT() {
+	// 20-10-2021 12.07
+	// Declare and initialize a vector of person objects
+	// Not done yet!
+	// Declare node using struct
+	struct Node {
+		// Key for organizing. Nodes will be organized by age
+		int age;
+		// Binary edges
+		// IMPORTANT! The left and right edges are declared recursivly!
+		struct Node* left;
+		struct Node* right;
+		Node(int val){
+			// Node constructor
+			age = val;
+			// Left and right child for node
+			// will be initialized to null
+			left = NULL;
+			right = NULL;
+		}
+	};
+	// Create nodes and organize them manualy on the heap!
+	// List of integers to sort:
+	// Do NOT run this code. No Clean up!
+	// 1, 3, 12, 2
+	//struct Node* root = new Node(1);
+	// 1<3
+	// -> is short for (* ).
+	//(*root).right = new Node(3);
+	//root->right = new Node(3);
+	// 1<12
+	// 3<12
+	//root->right->right = new Node(12);
+	// 1<2
+	// 3>2
+	//root->right->left = new Node(2);
+	// Declclare and initialize a binary search tree
+	std::cout << "Not done yet" << std::endl;
+	return 0;
+}

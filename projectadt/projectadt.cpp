@@ -6,7 +6,7 @@
 #include <iostream>
 int showUserOptions() {
     // 24-09-2021 15.30
-    std::cout << "1. LIST ADT" << std::endl;
+    std::cout << "1. List ADT" << std::endl;
     std::cout << "2. Tree ADT" << std::endl;
     std::cout << "3. #" << std::endl;
     std::cout << "4. #" << std::endl;

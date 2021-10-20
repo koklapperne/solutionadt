@@ -2,6 +2,8 @@
 #include <string>
 // Local headers
 #include "organization.h"
+// Standard library headers
+#include <iostream>
 // *
 // Department
 // *
@@ -27,6 +29,13 @@ int organizationAdministration::department::updateDepartment(std::vector<std::st
 	m_departmentAddress = newDepartmentInformation[2];
 	//
 	return 0;
+}
+std::string organizationAdministration::department::returnDepartmentName() {
+	// 20-10-2021 10.52
+	std::string result = "*";
+	result = m_departmentName;
+	//
+	return result;
 }
 // *
 // Hospital
@@ -82,6 +91,19 @@ int organizationAdministration::hospital::updateHospitalDepartment(int departmen
 	// 16-10-2021 11.38
 	int appAction = 0;
 	appAction = m_departments[departmentIndex].updateDepartment(newDepartmentInformation);
+	//
+	return 0;
+}
+int organizationAdministration::hospital::printHospitalDepartments() {
+	// 20-10-2021 10.06
+	// Declare an iterator
+	std::vector <organizationAdministration::department>::iterator i;
+    // Travers m_departments using an iterator
+	std::cout << "Hospital departments :" << std::endl;
+	for (i = m_departments.begin(); i != m_departments.end(); i++) {
+		std::cout << (*i).returnDepartmentName() << std::endl;
+	}
+	
 	//
 	return 0;
 }

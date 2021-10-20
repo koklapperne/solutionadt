@@ -13,6 +13,7 @@ namespace organizationAdministration {
 		department(std::vector<std::string> newDepartmentInformation);
 		// Other public data member functions
 		int updateDepartment(std::vector<std::string> newDepartmentInformation);
+		std::string returnDepartmentName();
 	private:
 		// Private data members
 		//
@@ -37,6 +38,7 @@ namespace organizationAdministration {
 		// IMPORTANT! Composition dictates that manipulation of department must take place through hospital!
 		int addHospitalDepartment(std::vector<std::string> newHospitalDepartmentInformation);
 		int updateHospitalDepartment(int departmentIndex, std::vector<std::string> newHospitalDepartmentInformation);
+		int printHospitalDepartments();
 	private:
 		// Private data members
 		//
