@@ -2,6 +2,7 @@
 #include "handling.h"
 #include "patient.h"
 #include "organization.h"
+#include "binarysearchtree.h"
 // Standard library headers
 #include <iostream>
 #include <vector>
@@ -10,14 +11,17 @@
 // IMPORTANT! Global variables are bad practice, but in this case it serves a purpose!
 // *
 // Declare and initialize a vector of patient objects. 
-// patientVectorContainer becomes the List ADT set of elements, or the list ADT container
+// patientVectorContainer becomes the List ADT set of patient elements, or the list ADT container
 std::vector<patientAdministration::patient> patientVectorContainer{};
 // Declare and initialize a list of patient objects. 
-// patientListContainer becomes the List ADT set of elements, or the list ADT container
+// patientListContainer becomes the List ADT set of patient elements, or the list ADT container
 std::list<patientAdministration::patient> patientListContainer{};
-// Declare and initialize a hospital objects. 
+// Declare and initialize a list of hospital objects. 
 // hospitalTreeContainer becomes the tree ADT set of department elements, or the tree ADT container
 organizationAdministration::hospital hospitalTreeContainer{};
+// Declare and initialize a binary tree of unique integers
+// binaryTreeContainer becomes the binary tree ADT set of unique integers, or the binary tree ADT container
+personAdministration::BinaryTree treeOfUniqueIntegers;
 // List ADT
 int showListADTOptions() {
     // 01-10-2021 11.38
@@ -415,7 +419,7 @@ int handleTreeADTOptions() {
 			break;
 		case 2:
 			appAction = TextUserInterface::writeSelectionHighlighter();
-			appAction = handleBinaryTreeADT();
+			appAction = handleBinarySearchTreeADT();
 			appAction = TextUserInterface::writeSelectionHighlighter();
 			appAction = TextUserInterface::writeActionSeperator();
 			break;
@@ -531,43 +535,42 @@ int fillHospitalTreeContainer() {
 	return 0;
 }
 // Binary search tree ADT
-int handleBinaryTreeADT() {
-	// 20-10-2021 12.07
-	// Declare and initialize a vector of person objects
-	// Not done yet!
-	// Declare node using struct
-	struct Node {
-		// Key for organizing. Nodes will be organized by age
-		int age;
-		// Binary edges
-		// IMPORTANT! The left and right edges are declared recursivly!
-		struct Node* left;
-		struct Node* right;
-		Node(int val){
-			// Node constructor
-			age = val;
-			// Left and right child for node
-			// will be initialized to null
-			left = NULL;
-			right = NULL;
-		}
-	};
-	// Create nodes and organize them manualy on the heap!
-	// List of integers to sort:
-	// Do NOT run this code. No Clean up!
-	// 1, 3, 12, 2
-	//struct Node* root = new Node(1);
-	// 1<3
-	// -> is short for (* ).
-	//(*root).right = new Node(3);
-	//root->right = new Node(3);
-	// 1<12
-	// 3<12
-	//root->right->right = new Node(12);
-	// 1<2
-	// 3>2
-	//root->right->left = new Node(2);
-	// Declclare and initialize a binary search tree
-	std::cout << "Not done yet" << std::endl;
+int handleBinarySearchTreeADT() {
+	// 21-10-2021 07.20
+	std::cout << "Binary search Tree with unique integers:" << std::endl;
+	int appAction = 0;
+	appAction = fillBinarySearchTreeContainer();
+	
+	return 0;
+}
+int fillBinarySearchTreeContainer() {
+	// 21-10-2021 11.07
+	// Declare a node
+	personAdministration::Node* ptr;
+	// Inserting
+	ptr = treeOfUniqueIntegers.insertNode(treeOfUniqueIntegers.getRoot(), 16);
+	treeOfUniqueIntegers.setRoot(ptr);
+	ptr = treeOfUniqueIntegers.insertNode(treeOfUniqueIntegers.getRoot(), 60);
+	treeOfUniqueIntegers.setRoot(ptr);
+	ptr = treeOfUniqueIntegers.insertNode(treeOfUniqueIntegers.getRoot(), 7);
+	treeOfUniqueIntegers.setRoot(ptr);
+	ptr = treeOfUniqueIntegers.insertNode(treeOfUniqueIntegers.getRoot(), 41);
+	treeOfUniqueIntegers.setRoot(ptr);
+	ptr = treeOfUniqueIntegers.insertNode(treeOfUniqueIntegers.getRoot(), 90);
+	treeOfUniqueIntegers.setRoot(ptr);
+	ptr = treeOfUniqueIntegers.insertNode(treeOfUniqueIntegers.getRoot(), 1);
+	treeOfUniqueIntegers.setRoot(ptr);
+	ptr = treeOfUniqueIntegers.insertNode(treeOfUniqueIntegers.getRoot(), 17);
+	treeOfUniqueIntegers.setRoot(ptr);
+	// Traversing
+	std::cout << "Inorder traversing:" << std::endl;
+	treeOfUniqueIntegers.inOrderTraversing(treeOfUniqueIntegers.getRoot());
+	std::cout << std::endl;
+	std::cout << "Preorder traversing:" << std::endl;
+	treeOfUniqueIntegers.preOrderTraversing(treeOfUniqueIntegers.getRoot());
+	std::cout << std::endl;
+	std::cout << "Postorder traversing:" << std::endl;
+	treeOfUniqueIntegers.postOrderTraversing(treeOfUniqueIntegers.getRoot());
+	std::cout << std::endl;
 	return 0;
 }

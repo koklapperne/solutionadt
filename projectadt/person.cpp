@@ -3,6 +3,7 @@
 // Local headers
 #include "person.h"
 // Public data member functions
+// Constructors
 personAdministration::person::person() {
 	// 01-10-2021 08.39
 	m_personId = "*";
@@ -17,6 +18,7 @@ personAdministration::person::person(std::vector<std::string> newPersonInformati
 	m_personName = newPersonInformation[2];
 	m_personAddress = newPersonInformation[3];
 }
+// Handling update
 int personAdministration::person::updatePerson(std::vector<std::string> newPersonInformation) {
 	// 20-10-2021 12.50
 	m_personId = newPersonInformation[0];
@@ -26,6 +28,7 @@ int personAdministration::person::updatePerson(std::vector<std::string> newPerso
 	// 
 	return 0;
 }
+// Handling returning
 std::string personAdministration::person::returnPersonName() {
 	// 20-10-2021 12.58
 	std::string result = "*";

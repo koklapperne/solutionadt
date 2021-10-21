@@ -11,5 +11,7 @@ int fillPatientListContainer();
 int showTreeADTOptions();
 int handleTreeADTOptions();
 int handleTreeADT();
-int handleBinaryTreeADT();
 int fillHospitalTreeContainer();
+// Binary search tree ADT
+int handleBinarySearchTreeADT();
+int fillBinarySearchTreeContainer();
