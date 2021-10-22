@@ -547,6 +547,9 @@ int fillBinarySearchTreeContainer() {
 	// 21-10-2021 11.07
 	// Declare a node
 	personAdministration::Node* ptr;
+	personAdministration::Node* minimumPtr;
+	personAdministration::Node* maximumPtr;
+	personAdministration::Node* nodeToDelete;
 	// Inserting
 	ptr = treeOfUniqueIntegers.insertNode(treeOfUniqueIntegers.getRoot(), 16);
 	treeOfUniqueIntegers.setRoot(ptr);
@@ -572,5 +575,19 @@ int fillBinarySearchTreeContainer() {
 	std::cout << "Postorder traversing:" << std::endl;
 	treeOfUniqueIntegers.postOrderTraversing(treeOfUniqueIntegers.getRoot());
 	std::cout << std::endl;
+	// Searching
+	std::cout << "Find minimum:" << std::endl;
+	minimumPtr = treeOfUniqueIntegers.findMinimum(ptr);
+	std::cout << minimumPtr->data << std::endl;
+	std::cout << "Find maximum:" << std::endl;
+	maximumPtr = treeOfUniqueIntegers.findMaximum(ptr);
+	std::cout << maximumPtr->data << std::endl;
+	// Deleting
+	std::cout << "Delete node:" << std::endl;
+	nodeToDelete = treeOfUniqueIntegers.deleteNode(treeOfUniqueIntegers.getRoot(), 7);
+	treeOfUniqueIntegers.setRoot(nodeToDelete);
+	treeOfUniqueIntegers.inOrderTraversing(treeOfUniqueIntegers.getRoot());
+	std::cout << std::endl;
+	// Clean up
 	return 0;
 }
