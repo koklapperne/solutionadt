@@ -22,6 +22,9 @@ organizationAdministration::hospital hospitalTreeContainer{};
 // Declare and initialize a binary tree of unique integers
 // binaryTreeContainer becomes the binary tree ADT set of unique integers, or the binary tree ADT container
 personAdministration::BinaryTree treeOfUniqueIntegers;
+// Declare and initialize a list of patient objects. 
+// patientListContainer becomes the List ADT set of patient elements, or the list ADT container
+std::list<patientAdministration::patient> patientListOfUniqueNames{};
 // List ADT
 int showListADTOptions() {
     // 01-10-2021 11.38
@@ -312,7 +315,7 @@ int fillPatientListContainer() {
 		patientInformation.push_back(patientIdentifiers[i]);
 		patientName = flowerNames[i] + vegetableNames[i];
 		patientInformation.push_back(patientName);
-		patientAddress = colorNames[i] + " " + "Road" + "456";
+		patientAddress = colorNames[i] + " " + "Road" + "645";
 		patientInformation.push_back(patientAddress);
 		patientInformation.push_back("01-10-2021 12.25");
 		patientInformation.push_back("N/A");
@@ -322,64 +325,6 @@ int fillPatientListContainer() {
 		patientListContainer.push_back(aPatient);
 		patientInformation.clear();
 	}
-
-	// Declaring and initializing a vector vith patient identifiers
-	// Create a patient object
-	/*patientInformation.push_back("011299-QQQQ");
-	patientInformation.push_back("Red Tulip");
-	patientInformation.push_back("Cabbage Road 45");
-	patientInformation.push_back("01-10-2021 12.25");
-	patientInformation.push_back("N/A");
-	patientInformation.push_back("Emergency Department");
-	patientAdministration::patient patAAA(patientInformation);
-	patientListContainer.push_back(patAAA);
-	patientInformation.clear();
-	// Create a patient object
-	patientInformation.push_back("011200-RRRR");
-	patientInformation.push_back("Blue Rose");
-	patientInformation.push_back("Carrot Street 6");
-	patientInformation.push_back("01-10-2021 06.25");
-	patientInformation.push_back("N/A");
-	patientInformation.push_back("Emergency Department");
-	patientAdministration::patient patAAB(patientInformation);
-	patientListContainer.push_back(patAAB);
-	// Clean up
-	patientInformation.clear();
-	// Create a patient object
-	patientInformation.push_back("310190-NNNN");
-	patientInformation.push_back("Black Orchid");
-	patientInformation.push_back("Onion Street 600");
-	patientInformation.push_back("01-01-2021 13.00");
-	patientInformation.push_back("N/A");
-	patientInformation.push_back("Emergency Department");
-	patientAdministration::patient patAAC(patientInformation);
-	patientListContainer.push_back(patAAC);
-	// Clean up
-	patientInformation.clear();
-	// Create a patient object
-	patientInformation.push_back("220620-PPPP");
-	patientInformation.push_back("Yellow Hyacinth");
-	patientInformation.push_back("Carrot Street 232");
-	patientInformation.push_back("03-08-2021 11.00");
-	patientInformation.push_back("N/A");
-	patientInformation.push_back("Emergency Department");
-	patientAdministration::patient patAAD(patientInformation);
-	patientListContainer.push_back(patAAD);
-	// Clean up
-	patientInformation.clear();
-	// Create a patient object
-	patientInformation.push_back("101245-AAAA");
-	patientInformation.push_back("Yellow Orchid");
-	patientInformation.push_back("Potatoe Street 2");
-	patientInformation.push_back("03-10-2021 06.45");
-	patientInformation.push_back("N/A");
-	patientInformation.push_back("Emergency Department");
-	patientAdministration::patient patAAE(patientInformation);
-	patientListContainer.push_back(patAAE);
-	// Clean up
-	patientInformation.clear();
-	//
-	*/
 	return 0;
 }
 // Tree ADT
@@ -589,5 +534,47 @@ int fillBinarySearchTreeContainer() {
 	treeOfUniqueIntegers.inOrderTraversing(treeOfUniqueIntegers.getRoot());
 	std::cout << std::endl;
 	// Clean up
+	return 0;
+}
+// Hashing
+int handleHashing() {
+	// 04-04-2022 12.24
+	std::cout << "Hashing of patient vector ADT with short unique names:" << std::endl;
+	int appAction = 0;
+	//appAction = fillBinarySearchTreeContainer();
+
+	return 0;
+}
+int fillHashingListContainer() {
+	// 04-04-2022 12.42
+	// Declaring and initializing
+	std::string patientName = "*";
+	std::string patientAddress = "*";
+	// Vector for updating a patient object with patient information
+	std::vector<std::string> patientInformation{};
+	// Declaring and initializing a vector with patient identifiers
+	std::vector<std::string> patientIdentifiers = { "011129-QQQQ","030566-WWWW","040622-EEEE","070655-FFFF","060133-TTTT","010499-YYYY","080922-UUUU","070499-IIII","010233-OOOO","060411-PPPP" };
+	// vector With patient names
+	// IMPORTANT! Must be with unique characters
+	std::vector<std::string> patientNames = { "Ned","Bea","Joy","Sal","Hal","Soe","Boy","Zed","Cal","Mia" };
+	// Vector With color names
+	std::vector<std::string> colorNames = { "Red","Pink","Orange","Yellow","Purple","Green","Blue","Brown","Cyan","Lime" };
+	// Declare and initialize aPatient object by calling the default constructor, no parameters
+	patientAdministration::patient aPatient;
+	for (unsigned int i = 0; i < 10; i++) {
+		patientInformation.push_back(patientIdentifiers[i]);
+		patientName = patientNames[i];
+		patientInformation.push_back(patientName);
+		patientAddress = colorNames[i] + " " + "Road" + "61";
+		patientInformation.push_back(patientAddress);
+		patientInformation.push_back("04-04-2022 13.17");
+		patientInformation.push_back("N/A");
+		patientInformation.push_back("Emergency Department");
+		// Add aPatient to patientListContainer and clear patientInformation 
+		aPatient.updatePatient(patientInformation);
+		patientListContainer.push_back(aPatient);
+		patientInformation.clear();
+	}
+	//
 	return 0;
 }

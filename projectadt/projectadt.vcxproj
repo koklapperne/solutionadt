@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="binarysearchtree.cpp" />
     <ClCompile Include="handling.cpp" />
+    <ClCompile Include="hashing.cpp" />
     <ClCompile Include="organization.cpp" />
     <ClCompile Include="patient.cpp" />
     <ClCompile Include="person.cpp" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="binarysearchtree.h" />
     <ClInclude Include="handling.h" />
+    <ClInclude Include="hashing.h" />
     <ClInclude Include="organization.h" />
     <ClInclude Include="patient.h" />
     <ClInclude Include="person.h" />

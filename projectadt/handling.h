@@ -15,3 +15,6 @@ int fillHospitalTreeContainer();
 // Binary search tree ADT
 int handleBinarySearchTreeADT();
 int fillBinarySearchTreeContainer();
+// Hashing
+int handleHashing();
+int fillHashingListContainer();
