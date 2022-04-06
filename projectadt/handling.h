@@ -16,5 +16,7 @@ int fillHospitalTreeContainer();
 int handleBinarySearchTreeADT();
 int fillBinarySearchTreeContainer();
 // Hashing
-int handleHashing();
-int fillHashingListContainer();
+int showHashingOptions();
+int handleHashingOptions();
+int fillHashingTestDataContainer();
+int hashFunction();

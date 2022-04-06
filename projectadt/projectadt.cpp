@@ -8,7 +8,7 @@ int showUserOptions() {
     // 24-09-2021 15.30
     std::cout << "1. List ADT" << std::endl;
     std::cout << "2. Tree ADT" << std::endl;
-    std::cout << "3. #" << std::endl;
+    std::cout << "3. Hashing" << std::endl;
     std::cout << "4. #" << std::endl;
     std::cout << "5. #" << std::endl;
     std::cout << "6. #" << std::endl;
@@ -39,10 +39,7 @@ int handleUserOptions() {
 			appAction = handleTreeADTOptions();
 			break;
 		case 3:
-			appAction = TextUserInterface::writeSelectionHighlighter();
-			std::cout << "Not done yet" << std::endl;
-			appAction = TextUserInterface::writeSelectionHighlighter();
-			appAction = TextUserInterface::writeActionSeperator();
+			appAction = handleHashingOptions();
 			break;
 		case 4:
 			appAction = TextUserInterface::writeSelectionHighlighter();

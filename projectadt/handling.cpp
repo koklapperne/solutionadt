@@ -537,15 +537,110 @@ int fillBinarySearchTreeContainer() {
 	return 0;
 }
 // Hashing
-int handleHashing() {
-	// 04-04-2022 12.24
-	std::cout << "Hashing of patient vector ADT with short unique names:" << std::endl;
-	int appAction = 0;
-	//appAction = fillBinarySearchTreeContainer();
-
+int showHashingOptions() {
+	// 05-04-2022 11.42
+	std::cout << "1. Fill test data structure" << std::endl;
+	std::cout << "2. #" << std::endl;
+	std::cout << "3. #" << std::endl;
+	std::cout << "4. #" << std::endl;
+	std::cout << "5. #" << std::endl;
+	std::cout << "6. #" << std::endl;
+	std::cout << "7. #" << std::endl;
+	std::cout << "8. #" << std::endl;
+	std::cout << "9. #" << std::endl;
+	std::cout << "0. Exit" << std::endl;
+	TextUserInterface::writeActionSeperator();
+	//
 	return 0;
 }
-int fillHashingListContainer() {
+int handleHashingOptions() {
+	// 05-04-2022 13.40
+	int appAction = 0;
+	int choise = 99;
+	bool stop = false;
+	//
+	while (stop == false) {
+		appAction = showHashingOptions();
+		std::cout << "Enter choise: ";
+		std::cin >> choise;
+		appAction = TextUserInterface::writeActionSeperator();
+		switch (choise) {
+		case 1:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = fillHashingTestDataContainer();
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 2:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 3:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 4:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 5:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 6:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 7:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 8:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 9:
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			std::cout << "Not done yet" << std::endl;
+			appAction = TextUserInterface::writeSelectionHighlighter();
+			appAction = TextUserInterface::writeActionSeperator();
+			break;
+		case 0:
+			stop = true;
+			break;
+		default:
+			stop = true;
+			break;
+
+		}
+
+	}
+	//
+	return 0;
+}
+int handleHashing() {
+	// 05-04-2022 12.24
+	std::cout << "Hashing of patient vector ADT with short unique names:" << std::endl;
+	int appAction = 0;
+	appAction = fillHashingTestDataContainer();
+	//
+	return 0;
+}
+int fillHashingTestDataContainer() {
 	// 04-04-2022 12.42
 	// Declaring and initializing
 	std::string patientName = "*";
@@ -556,7 +651,7 @@ int fillHashingListContainer() {
 	std::vector<std::string> patientIdentifiers = { "011129-QQQQ","030566-WWWW","040622-EEEE","070655-FFFF","060133-TTTT","010499-YYYY","080922-UUUU","070499-IIII","010233-OOOO","060411-PPPP" };
 	// vector With patient names
 	// IMPORTANT! Must be with unique characters
-	std::vector<std::string> patientNames = { "Ned","Bea","Joy","Sal","Hal","Soe","Boy","Zed","Cal","Mia" };
+	std::vector<std::string> patientNames = { "Ada","Bea","Joy","Jan","Hal","Soe","Boy","Zed","Cal","Mia","Tim" };
 	// Vector With color names
 	std::vector<std::string> colorNames = { "Red","Pink","Orange","Yellow","Purple","Green","Blue","Brown","Cyan","Lime" };
 	// Declare and initialize aPatient object by calling the default constructor, no parameters
@@ -572,9 +667,18 @@ int fillHashingListContainer() {
 		patientInformation.push_back("Emergency Department");
 		// Add aPatient to patientListContainer and clear patientInformation 
 		aPatient.updatePatient(patientInformation);
-		patientListContainer.push_back(aPatient);
+		patientListOfUniqueNames.push_back(aPatient);
 		patientInformation.clear();
 	}
 	//
+	std::cout << "Test data structure populated" << std::endl;
+	//
+	return 0;
+}
+int hashFunction(std::string uniqueName) {
+	// Sum of characters ASCII value MOD number of names!
+	// IMPORTANT! To ensure that the hash function is injective, 
+	// all names must be composed of unique characters, no names must share
+	// all characters!
 	return 0;
 }
