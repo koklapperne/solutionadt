@@ -46,6 +46,14 @@ std::string patientAdministration::patient::returnPatientId() {
 	//
 	return result;
 }
+// Handling PatientName
+std::string patientAdministration::patient::returnPatientName() {
+	// 06-04-2022 17.22
+	std::string result = "*";
+	result = m_patientName;
+	//
+	return result;
+}
 // Handling DateDischarge
 int patientAdministration::patient::updateDateDischarge(std::string newDischargeDate) {
 	// 03-10-2021 10.04

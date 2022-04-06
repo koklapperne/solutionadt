@@ -24,7 +24,7 @@ organizationAdministration::hospital hospitalTreeContainer{};
 personAdministration::BinaryTree treeOfUniqueIntegers;
 // Declare and initialize a list of patient objects. 
 // patientListContainer becomes the List ADT set of patient elements, or the list ADT container
-std::list<patientAdministration::patient> patientListOfUniqueNames{};
+std::vector<patientAdministration::patient> patientListOfUniqueNames{};
 // List ADT
 int showListADTOptions() {
     // 01-10-2021 11.38
@@ -540,7 +540,7 @@ int fillBinarySearchTreeContainer() {
 int showHashingOptions() {
 	// 05-04-2022 11.42
 	std::cout << "1. Fill test data structure" << std::endl;
-	std::cout << "2. #" << std::endl;
+	std::cout << "2. Use hash function" << std::endl;
 	std::cout << "3. #" << std::endl;
 	std::cout << "4. #" << std::endl;
 	std::cout << "5. #" << std::endl;
@@ -573,7 +573,7 @@ int handleHashingOptions() {
 			break;
 		case 2:
 			appAction = TextUserInterface::writeSelectionHighlighter();
-			std::cout << "Not done yet" << std::endl;
+			appAction = useHashFunction();
 			appAction = TextUserInterface::writeSelectionHighlighter();
 			appAction = TextUserInterface::writeActionSeperator();
 			break;
@@ -680,5 +680,32 @@ int hashFunction(std::string uniqueName) {
 	// IMPORTANT! To ensure that the hash function is injective, 
 	// all names must be composed of unique characters, no names must share
 	// all characters!
+	// Declarations
+	int result;
+	char activeCharacter;
+	// Initializations
+	result = 0;
+	activeCharacter = '*';
+	// Travers the string
+	for (int i = 1; i < 4; i++) {
+		activeCharacter = uniqueName[i];
+		result = result + (int)activeCharacter;
+	}
+	//
+	return result;
+}
+int useHashFunction() {
+	// 06-04-2022-16.55
+	// Declarations
+	int calculatedIndex;
+	std::string activeName;
+	// Initialization
+	calculatedIndex = 0;
+	activeName = "*";
+	//
+	activeName = patientListOfUniqueNames[2].returnPatientName();
+	calculatedIndex = hashFunction(activeName);
+	std::cout << "calculatedIndex: " << calculatedIndex << std::endl;
+	// 
 	return 0;
 }

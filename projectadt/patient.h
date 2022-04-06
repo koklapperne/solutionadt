@@ -14,6 +14,7 @@ namespace patientAdministration{
 		// Other data member functions
 		int updatePatient(std::vector<std::string> newPatientInformation);
 		std::string returnPatientId();
+		std::string returnPatientName();
 		int updateDateDischarge(std::string newDischargeDate);
 		std::string returnDateDischarge();
 	private:

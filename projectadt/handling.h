@@ -19,4 +19,5 @@ int fillBinarySearchTreeContainer();
 int showHashingOptions();
 int handleHashingOptions();
 int fillHashingTestDataContainer();
-int hashFunction();
+int hashFunction(std::string uniqueName);
+int useHashFunction();
