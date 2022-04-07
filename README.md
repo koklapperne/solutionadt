@@ -1,4 +1,5 @@
 # solutionadt
+Terminated
 Explore abstract data types in C++
 # Get remote repository
 ```
